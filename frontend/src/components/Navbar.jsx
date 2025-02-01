@@ -26,7 +26,7 @@ const Navbar = () => {
         >
           <li>
             <a
-              href="#home"
+              href="/"
               className="block py-2 md:py-0 md:inline-block text-lg hover:text-[#F8F9FA]"
             >
               Home
@@ -54,6 +54,14 @@ const Navbar = () => {
               className="block py-2 md:py-0 md:inline-block text-lg hover:text-[#F8F9FA]"
             >
               Contact
+            </a>
+          </li>
+          <li>
+            <a
+              href="/login"
+              className="block py-2 md:py-0 md:inline-block text-lg hover:text-[#F8F9FA]"
+            >
+              Login
             </a>
           </li>
         </ul>
