@@ -1,104 +1,68 @@
-import React from "react";
+import { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", password: "", role: "recipient" });
+
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:5000/api/auth/register", formData);
+      alert("Registration Successful!");
+    } catch (error) {
+      alert("Error registering user");
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#F8F9FA] py-12 px-6">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-3xl font-bold text-center text-[#B22222] mb-6">
-          Register
-        </h2>
-        <form className="space-y-6" action="#" method="POST">
-          {/* Full Name */}
-          <div>
-            <label
-              htmlFor="fullname"
-              className="block text-sm font-medium text-[#343A40]"
-            >
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="fullname"
-              name="fullname"
-              required
-              className="block w-full mt-2 px-4 py-2 text-[#343A40] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B22222] focus:border-[#B22222]"
-              placeholder="Enter your full name"
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-[#343A40]"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="block w-full mt-2 px-4 py-2 text-[#343A40] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B22222] focus:border-[#B22222]"
-              placeholder="Enter your email"
-            />
-          </div>
-
-          {/* Password */}
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-[#343A40]"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-              className="block w-full mt-2 px-4 py-2 text-[#343A40] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B22222] focus:border-[#B22222]"
-              placeholder="Enter your password"
-            />
-          </div>
-
-          {/* Confirm Password */}
-          <div>
-            <label
-              htmlFor="confirmPassword"
-              className="block text-sm font-medium text-[#343A40]"
-            >
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              required
-              className="block w-full mt-2 px-4 py-2 text-[#343A40] bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B22222] focus:border-[#B22222]"
-              placeholder="Confirm your password"
-            />
-          </div>
-
-          {/* Submit Button */}
-          <div>
-            <button
-              type="submit"
-              className="w-full py-3 bg-[#B22222] text-white font-semibold rounded-md hover:bg-[#8B0000] transition duration-300"
-            >
-              Register
-            </button>
-          </div>
-        </form>
-
-        <p className="text-sm text-center text-[#343A40] mt-6">
-          Already have an account?{" "}
-          <a
-            href="/login"
-            className="font-medium text-[#B22222] hover:underline"
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+      <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-red-600 mb-6">Register</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            onChange={handleChange}
+            required
+            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            onChange={handleChange}
+            required
+            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            required
+            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <select
+            name="role"
+            onChange={handleChange}
+            className="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
           >
-            Login
-          </a>
+            <option value="recipient">Recipient</option>
+            <option value="donor">Donor</option>
+            <option value="admin">Admin</option>
+          </select>
+          <button
+            type="submit"
+            className="bg-red-600 text-white p-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300"
+          >
+            Register
+          </button>
+        </form>
+        <p className="text-center text-gray-600 mt-4">
+          Already have an account? <a href="/login" className="text-red-500 hover:underline">Login</a>
         </p>
       </div>
     </div>
