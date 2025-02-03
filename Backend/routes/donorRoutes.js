@@ -7,18 +7,19 @@ const router = express.Router();
 // Add or Update Donor Profile
 router.post("/", authMiddleware, async (req, res) => {
   try {
-    const { bloodType, location, isAvailable } = req.body;
+    const { bloodGroup, available, location, contactNumber } = req.body;
 
     let donor = await Donor.findOne({ user: req.user.id });
     if (donor) {
-      donor.bloodType = bloodType;
+      donor.bloodGroup = bloodGroup;     
+      donor.available = available;
       donor.location = location;
-      donor.isAvailable = isAvailable;
+      donor.contactNumber= contactNumber;
       await donor.save();
       return res.json(donor);
     }
 
-    donor = new Donor({ user: req.user.id, bloodType, location, isAvailable });
+    donor = new Donor({ user: req.user.id, bloodGroup, available, location, contactNumber  });
     await donor.save();
     res.status(201).json(donor);
   } catch (err) {
@@ -29,7 +30,7 @@ router.post("/", authMiddleware, async (req, res) => {
 // Get All Available Donors
 router.get("/", async (req, res) => {
   try {
-    const donors = await Donor.find({ isAvailable: true }).populate("user", "name email");
+    const donors = await Donor.find({ available: true }).populate("user", "name email");
     res.json(donors);
   } catch (err) {
     res.status(500).json({ msg: "Server error" });
