@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Navbar from "./components/navbar";
+import BloodRequest from "./pages/BloodRequest";
 
 const App = () => {
   return (
@@ -11,6 +12,8 @@ const App = () => {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/RequestBlood" element={<BloodRequest/>} />
+
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
       </Routes>
