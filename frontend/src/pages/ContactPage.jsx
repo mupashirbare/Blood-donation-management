@@ -81,15 +81,15 @@ const ContactPage = () => {
           <div className="flex flex-col justify-center space-y-6">
             <div className="flex items-center space-x-4">
               <FaPhoneAlt className="text-red-700 text-2xl" />
-              <p className="text-gray-700 text-lg">+123 456 7890</p>
+              <p className="text-gray-700 text-lg">+252 616917540</p>
             </div>
             <div className="flex items-center space-x-4">
               <FaEnvelope className="text-red-700 text-2xl" />
-              <p className="text-gray-700 text-lg">contact@example.com</p>
+              <p className="text-gray-700 text-lg">mubashirbarre12t@example.com</p>
             </div>
             <div className="flex items-center space-x-4">
               <FaMapMarkerAlt className="text-red-700 text-2xl" />
-              <p className="text-gray-700 text-lg">123 Main St, City, Country</p>
+              <p className="text-gray-700 text-lg"> Xareed Yarow Guulwade, Kismayo, somalia</p>
             </div>
           </div>
         </div>
