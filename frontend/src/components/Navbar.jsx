@@ -42,7 +42,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="#services"
+              href="services"
               className="block py-2 md:py-0 md:inline-block text-lg hover:text-[#F8F9FA]"
             >
               Services

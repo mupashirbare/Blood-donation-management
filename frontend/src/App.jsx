@@ -7,6 +7,7 @@ import BloodRequest from "./pages/BloodRequest";
 import Navbar from "./components/Navbar";
 import ContactPage from "./pages/ContactPage";
 import AboutUs from "./pages/AboutUs";
+import ServicesPage from "./pages/ServicesPage";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/RequestBlood" element={<BloodRequest/>} />
         <Route path="contact" element={<ContactPage/>} />
         <Route path="about" element={<AboutUs/>} />
+        <Route path="services" element={<ServicesPage/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
       </Routes>
