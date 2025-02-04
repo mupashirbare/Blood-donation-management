@@ -1,4 +1,5 @@
 import { FaUsers, FaBullseye, FaLightbulb, FaUserTie } from "react-icons/fa";
+import Footer from "../components/Footer";
 
 const AboutUs = () => {
   return (
@@ -85,6 +86,8 @@ const AboutUs = () => {
           ))}
         </div>
       </div>
+        {/* Footer Section */}
+        <Footer/>
     </div>
   );
 };

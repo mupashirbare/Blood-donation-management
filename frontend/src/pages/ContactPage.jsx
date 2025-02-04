@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -10,23 +11,28 @@ const ContactPage = () => {
     message: "",
   });
 
+  const [status, setStatus] = useState({ loading: false, message: "" });
+
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus({ loading: true, message: "" });
+
     try {
       await axios.post("http://localhost:5000/api/contact", formData);
-      alert("Message sent successfully!");
+      setStatus({ loading: false, message: "Message sent successfully!" });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      alert("Error sending message");
+      setStatus({ loading: false, message: "Error sending message" });
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       {/* Contact Card */}
-      <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-8">
+      <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-8 mb-12">
         <h2 className="text-3xl font-semibold text-red-700 text-center mb-6">
           Contact Us
         </h2>
@@ -40,6 +46,7 @@ const ContactPage = () => {
             <input
               type="text"
               name="name"
+              value={formData.name}
               placeholder="Your Name"
               onChange={handleChange}
               required
@@ -48,6 +55,7 @@ const ContactPage = () => {
             <input
               type="email"
               name="email"
+              value={formData.email}
               placeholder="Your Email"
               onChange={handleChange}
               required
@@ -56,6 +64,7 @@ const ContactPage = () => {
             <input
               type="text"
               name="subject"
+              value={formData.subject}
               placeholder="Subject"
               onChange={handleChange}
               required
@@ -63,6 +72,7 @@ const ContactPage = () => {
             />
             <textarea
               name="message"
+              value={formData.message}
               rows="4"
               placeholder="Your Message"
               onChange={handleChange}
@@ -71,10 +81,26 @@ const ContactPage = () => {
             ></textarea>
             <button
               type="submit"
-              className="w-full py-3 bg-red-700 text-white font-bold rounded-md hover:bg-red-800 transition duration-300"
+              disabled={status.loading}
+              className={`w-full py-3 text-white font-bold rounded-md transition duration-300 ${
+                status.loading
+                  ? "bg-red-400 cursor-not-allowed"
+                  : "bg-red-700 hover:bg-red-800"
+              }`}
             >
-              Send Message
+              {status.loading ? "Sending..." : "Send Message"}
             </button>
+            {status.message && (
+              <p
+                className={`text-center font-semibold ${
+                  status.message.includes("Error")
+                    ? "text-red-600"
+                    : "text-green-600"
+                }`}
+              >
+                {status.message}
+              </p>
+            )}
           </form>
 
           {/* Contact Info */}
@@ -85,11 +111,15 @@ const ContactPage = () => {
             </div>
             <div className="flex items-center space-x-4">
               <FaEnvelope className="text-red-700 text-2xl" />
-              <p className="text-gray-700 text-lg">mubashirbarre12t@example.com</p>
+              <p className="text-gray-700 text-lg">
+                mubashirbarre12t@example.com
+              </p>
             </div>
             <div className="flex items-center space-x-4">
               <FaMapMarkerAlt className="text-red-700 text-2xl" />
-              <p className="text-gray-700 text-lg"> Xareed Yarow Guulwade, Kismayo, somalia</p>
+              <p className="text-gray-700 text-lg">
+                Xareed Yarow Guulwade, Kismayo, Somalia
+              </p>
             </div>
           </div>
         </div>

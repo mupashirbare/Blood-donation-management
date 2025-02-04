@@ -1,10 +1,11 @@
 import React from "react";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center">
       {/* Hero Section */}
-      <div className="w-full px-6 py-12 md:py-20 text-center">
+      <div className="w-full max-w-screen-xl px-6 py-12 md:py-20 text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-[#B22222]">
           Welcome to Our Blood Donation System
         </h1>
@@ -54,6 +55,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };
