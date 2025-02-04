@@ -1,26 +1,26 @@
-import { FaCode, FaMobileAlt, FaCloud, FaShieldAlt } from "react-icons/fa";
+import { FaTint, FaHandHoldingHeart, FaAmbulance, FaHeartbeat } from "react-icons/fa";
 import Footer from "../components/Footer";
 
 const services = [
   {
-    icon: <FaCode className="text-4xl text-red-700" />,
-    title: "Web Development",
-    description: "We create high-performance websites tailored to your business needs.",
+    icon: <FaTint className="text-4xl text-red-700" />,
+    title: "Blood Donation",
+    description: "Donate blood to save lives. Every drop counts in emergency situations.",
   },
   {
-    icon: <FaMobileAlt className="text-4xl text-red-700" />,
-    title: "Mobile App Development",
-    description: "Developing modern mobile applications with a seamless user experience.",
+    icon: <FaHandHoldingHeart className="text-4xl text-red-700" />,
+    title: "Plasma Donation",
+    description: "Help patients in need by donating plasma, crucial for treating severe illnesses.",
   },
   {
-    icon: <FaCloud className="text-4xl text-red-700" />,
-    title: "Cloud Solutions",
-    description: "Secure cloud-based applications with high scalability and reliability.",
+    icon: <FaAmbulance className="text-4xl text-red-700" />,
+    title: "Emergency Blood Supply",
+    description: "Providing urgent blood supply for hospitals and emergency cases.",
   },
   {
-    icon: <FaShieldAlt className="text-4xl text-red-700" />,
-    title: "Cyber Security",
-    description: "Ensuring data security with cutting-edge cybersecurity solutions.",
+    icon: <FaHeartbeat className="text-4xl text-red-700" />,
+    title: "Health Checkups",
+    description: "Get free health checkups when you donate blood to ensure your well-being.",
   },
 ];
 
@@ -28,9 +28,9 @@ const ServicesPage = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}
-      <div className="bg-red-700 text-white text-center py-16 px-4">
+      <div className="relative w-full h-72 flex items-center justify-center bg-gradient-to-r from-[#B71C1C] to-[#880E4F] text-white text-center">
         <h1 className="text-4xl font-bold">Our Services</h1>
-        <p className="text-lg mt-2">Delivering top-quality solutions for your business needs.</p>
+        <p className="text-lg mt-2">We provide essential blood donation and emergency services.</p>
       </div>
 
       {/* Services Grid */}
@@ -49,15 +49,12 @@ const ServicesPage = () => {
 
       {/* Call to Action */}
       <div className="text-center bg-red-700 text-white py-16 px-6">
-        <h2 className="text-3xl font-bold">Let's Build Something Amazing Together!</h2>
-        <p className="mt-2 text-lg">Contact us today to discuss your project.</p>
-        <a href="/contact" className="mt-4 inline-block bg-white text-red-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition">
-          Get in Touch
+        <h2 className="text-3xl font-bold">Be a Hero, Donate Blood!</h2>
+        <p className="mt-2 text-lg">Join our mission to save lives by donating today.</p>
+        <a href="/donate" className="mt-4 inline-block bg-white text-red-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition">
+          Donate Now
         </a>
       </div>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
