@@ -47,14 +47,7 @@ const ServicesPage = () => {
         ))}
       </div>
 
-      {/* Call to Action */}
-      <div className="text-center bg-red-700 text-white py-16 px-6">
-        <h2 className="text-3xl font-bold">Be a Hero, Donate Blood!</h2>
-        <p className="mt-2 text-lg">Join our mission to save lives by donating today.</p>
-        <a href="/donate" className="mt-4 inline-block bg-white text-red-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition">
-          Donate Now
-        </a>
-      </div>
+      
     </div>
   );
 };
