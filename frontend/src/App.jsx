@@ -8,6 +8,7 @@ import ContactPage from "./pages/ContactPage";
 import AboutUs from "./pages/AboutUs";
 import ServicesPage from "./pages/ServicesPage";
 import BloodBankPage from "./pages/BloodBankPage";
+import BloodRequest from "./pages/BloodRequest";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/BloodBank" element={<BloodBankPage/>} />
+        <Route path="/request-blood" element={<BloodRequest/>} />
         <Route path="contact" element={<ContactPage/>} />
         <Route path="about" element={<AboutUs/>} />
         <Route path="services" element={<ServicesPage/>}/>
