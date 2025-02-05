@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 const BloodRequest = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const bloodTypeFromQuery = queryParams.get("type") || "";
+
   const [formData, setFormData] = useState({
-    bloodType: "",
+    bloodType: bloodTypeFromQuery,
     location: "",
     urgency: "Normal",
   });
+
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, bloodType: bloodTypeFromQuery }));
+  }, [bloodTypeFromQuery]);
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,22 +42,13 @@ const BloodRequest = () => {
           {/* Blood Type Selection */}
           <div>
             <label className="block text-gray-700 font-medium">Blood Type</label>
-            <select
+            <input
+              type="text"
               name="bloodType"
-              onChange={handleChange}
-              required
-              className="block w-full mt-1 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
-            >
-              <option value="">Select Blood Type</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-            </select>
+              value={formData.bloodType}
+              readOnly
+              className="block w-full mt-1 p-3 border border-gray-300 rounded-md bg-gray-100"
+            />
           </div>
 
           {/* Location Input */}
