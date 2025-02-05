@@ -58,10 +58,10 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="/RequestBlood"
+              href="/BloodBank"
               className="block py-2 md:py-0 md:inline-block text-lg hover:text-[#F8F9FA]"
             >
-              Request Blood
+               Blood Bank
             </a>
           </li>
           <li>
