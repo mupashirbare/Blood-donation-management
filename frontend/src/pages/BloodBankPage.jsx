@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaTint } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const bloodTypes = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
@@ -8,7 +9,7 @@ const BloodBankPage = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}
-      <div className="bg-red-700 text-white text-center py-16 px-4">
+      <div className="relative w-full h-72 flex items-center justify-center bg-gradient-to-r from-[#B71C1C] to-[#880E4F] text-white text-center">
         <h1 className="text-4xl font-bold">Blood Bank</h1>
         <p className="text-lg mt-2">Find and request the blood type you need.</p>
       </div>
@@ -26,6 +27,7 @@ const BloodBankPage = () => {
           </Link>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };
