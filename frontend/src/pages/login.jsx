@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: "", password: "", role: "" });
+  const [formData, setFormData] = useState({ email: "", password: ""});
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.email || !formData.password || !formData.role) {
+    if (!formData.email || !formData.password ) {
       setError("All fields are required.");
       return;
     }
@@ -81,26 +81,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Role Selection */}
-          <div>
-            <label htmlFor="role" className="block text-sm font-medium text-[#343A40]">
-              Select Role
-            </label>
-            <select
-              id="role"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              required
-              className="block w-full mt-2 px-4 py-2 bg-white border border-gray-300 rounded-md 
-                         text-[#343A40] focus:outline-none focus:ring-2 focus:ring-[#B22222] focus:border-[#B22222]"
-            >
-              <option value="">Choose a role</option>
-              <option value="admin">Admin</option>
-              <option value="donor">Donor</option>
-              <option value="user">Recipient</option>
-            </select>
-          </div>
 
           {/* Forgot Password */}
           <div className="flex justify-between text-sm">
