@@ -32,13 +32,7 @@ const BloodRequest = ({ bloodType, closeModal }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4 z-50">
       <div className="bg-white w-full max-w-lg p-6 rounded-lg shadow-lg relative">
-        {/* Close Button */}
-        <button
-          onClick={closeModal}
-          className="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-2xl"
-        >
-          <IoClose />
-        </button>
+       
 
         {/* Header */}
         <h2 className="text-3xl font-semibold text-red-700 text-center mb-6">
