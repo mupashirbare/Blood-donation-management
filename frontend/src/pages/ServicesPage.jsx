@@ -46,7 +46,7 @@ const ServicesPage = () => {
           </div>
         ))}
       </div>
-        <Footer/>
+       
       
     </div>
   );
