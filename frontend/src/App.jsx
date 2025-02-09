@@ -9,6 +9,7 @@ import AboutUs from "./pages/AboutUs";
 import ServicesPage from "./pages/ServicesPage";
 import BloodBankPage from "./pages/BloodBankPage";
 import BloodRequest from "./pages/BloodRequest";
+import AdminDashboard from "./layout/AdminDashboard";
 
 const App = () => {
   return (
@@ -16,6 +17,9 @@ const App = () => {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/AdminDashboard" element={<AdminDashboard/>} />
+
+
         <Route path="/BloodBank" element={<BloodBankPage/>} />
         <Route path="/request-blood" element={<BloodRequest/>} />
         <Route path="contact" element={<ContactPage/>} />
