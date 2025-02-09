@@ -83,11 +83,7 @@ const AdminDashboard = () => {
           </div>
         </header>
 
-        {/* Main Content Area */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold">Welcome to the Admin Dashboard</h2>
-          <p className="text-gray-600 mt-2">Manage all operations from one place.</p>
-        </div>
+       
       </main>
     </div>
   );

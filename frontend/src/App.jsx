@@ -10,6 +10,7 @@ import ServicesPage from "./pages/ServicesPage";
 import BloodBankPage from "./pages/BloodBankPage";
 import BloodRequest from "./pages/BloodRequest";
 import AdminDashboard from "./layout/AdminDashboard";
+import DashboardStats from "./components/DashboardStats";
 
 const App = () => {
   return (
@@ -18,8 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/Admin" element={<AdminDashboard/>} />
-
-
+        <Route path="/dashboard-stats" element={<DashboardStats/>} />
         <Route path="/BloodBank" element={<BloodBankPage/>} />
         <Route path="/request-blood" element={<BloodRequest/>} />
         <Route path="contact" element={<ContactPage/>} />
