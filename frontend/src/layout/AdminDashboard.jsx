@@ -48,7 +48,7 @@ const AdminDashboard = () => {
           </div>
         </header>
 
-        <section className="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800">
+        <section className="bg-white p-6 rounded-lg shadow-md dark:bg-purple-800">
           <h2 className="text-xl font-semibold">Dashboard Overview</h2>
           <p>Welcome to the Admin Dashboard. Manage users, donors, blood requests, and more.</p>
         </section>
