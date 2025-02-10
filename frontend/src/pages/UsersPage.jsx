@@ -51,7 +51,7 @@ const UsersPage = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <tr key={user.id} className={`${index % 2 === 0 ? "bg-gray-100" : "bg-white"} hover:bg-gray-200`}>
+              <tr key={user.id} className={`${index % 2 === 0 ? "bg-gray-100" : "bg-white"} hover:bg-cyan-700`}>
                 <td className="p-3">{user.name}</td>
                 <td className="p-3">{user.email}</td>
                 <td className="p-3">{user.role}</td>
