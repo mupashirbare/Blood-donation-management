@@ -10,8 +10,23 @@ const UsersPage = () => {
     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Inactive" },
     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active" },
     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active" },
-     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Inactive" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Inactive" },
     { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 3, name: "Michael Brown", email: "michael@example.com", role: "Moderator", status: "Active" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active" },
+     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active" },
+
+
   ]);
 
   return (
