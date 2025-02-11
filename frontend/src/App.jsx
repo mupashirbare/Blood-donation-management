@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
@@ -12,6 +11,7 @@ import BloodRequest from "./pages/BloodRequest";
 import AdminDashboard from "./layout/AdminDashboard";
 import DashboardStats from "./components/DashboardStats";
 import UsersPage from "./pages/UsersPage";
+import Login from "./pages/login";
 
 const App = () => {
   return (
@@ -25,9 +25,8 @@ const App = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register />} />
-
         {/* Nested Routes Inside Admin Dashboard */}
         <Route path="/admin" element={<AdminDashboard />}>
           <Route index element={<DashboardStats />} /> {/* Default Admin Page */}
