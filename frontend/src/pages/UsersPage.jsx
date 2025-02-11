@@ -21,7 +21,7 @@ const UsersPage = () => {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 10;
+  const usersPerPage = 7;
 
   // Calculate the displayed users
   const startIndex = (currentPage - 1) * usersPerPage;
