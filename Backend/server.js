@@ -8,6 +8,8 @@ const authRoutes = require("./routes/authRoutes");
 const donorRoutes = require("./routes/donorRoutes");
 const recipientRoutes = require("./routes/recipientRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const connectDB = require("./config/db");
+
 
 // Initialize Express App
 const app = express();
@@ -17,7 +19,6 @@ app.use(express.json());
 app.use(cors());
 
 // Database Connection
-const connectDB = require("./config/db");
 connectDB();
 
 // API Routes

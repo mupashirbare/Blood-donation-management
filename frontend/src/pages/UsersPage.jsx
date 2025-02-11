@@ -17,17 +17,26 @@ const UsersPage = () => {
 
   // Fetch Users from Backend
   const fetchUsers = async () => {
-    setLoading(true);
     try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setError("No token found");
+        return;
+      }
+  
       const response = await axios.get("http://localhost:5000/api/admin/users", {
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
+  
       setUsers(response.data);
     } catch (error) {
-      setError("Failed to fetch users");
+      setError("Error fetching users");
+      console.error(error.response?.data || error.message);
     }
-    setLoading(false);
   };
+  
+
+  
 
   // Delete User
   const deleteUser = async (id) => {
@@ -36,20 +45,21 @@ const UsersPage = () => {
         await axios.delete(`http://localhost:5000/api/admin/users/${id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
-        setUsers(users.filter(user => user._id !== id));
+  
+        setUsers(prevUsers => prevUsers.filter(user => user._id !== id));
       } catch (error) {
         setError("Failed to delete user");
       }
     }
   };
+  
 
   const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.status.toLowerCase().includes(searchQuery.toLowerCase())
+    user.role.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
+  
   const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
   const startIndex = (currentPage - 1) * usersPerPage;
   const displayedUsers = filteredUsers.slice(startIndex, startIndex + usersPerPage);
