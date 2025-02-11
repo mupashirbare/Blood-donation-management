@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaEdit, FaTrash, FaPlus, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaEdit, FaTrash, FaPlus, FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
 
 const UsersPage = () => {
   const usersData = [
@@ -12,18 +12,35 @@ const UsersPage = () => {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const usersPerPage = 5;
 
-  // Pagination
+  const filteredUsers = usersData.filter(user => 
+    user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.status.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
   const startIndex = (currentPage - 1) * usersPerPage;
-  const displayedUsers = usersData.slice(startIndex, startIndex + usersPerPage);
-  const totalPages = Math.ceil(usersData.length / usersPerPage);
+  const displayedUsers = filteredUsers.slice(startIndex, startIndex + usersPerPage);
 
   return (
     <div className="p-4">
-      {/* Header with Add User Button */}
-      <div className="flex justify-between items-center mb-4">
+      {/* Header with Add User Button and Search Input */}
+      <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
         <h2 className="text-2xl font-bold text-[#004D40]">Manage Users</h2>
+        <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-white">
+          <FaSearch className="text-gray-500 mr-2" />
+          <input 
+            type="text" 
+            placeholder="Search users..." 
+            className="outline-none w-full"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
         <button className="bg-[#00796B] text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-[#004D40]">
           <FaPlus /> Add User
         </button>
