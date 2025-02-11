@@ -9,30 +9,18 @@ const UsersPage = () => {
     { id: 4, name: "Sarah Wilson", email: "sarah@example.com", role: "User", status: "Active" },
     { id: 5, name: "David Clark", email: "david@example.com", role: "User", status: "Inactive" },
     { id: 6, name: "Emily Johnson", email: "emily@example.com", role: "Admin", status: "Active" },
-    { id: 7, name: "Chris Lee", email: "chris@example.com", role: "User", status: "Inactive" },
-    { id: 8, name: "Sophia Martinez", email: "sophia@example.com", role: "Moderator", status: "Active" },
-    { id: 9, name: "Daniel White", email: "daniel@example.com", role: "User", status: "Active" },
-    { id: 10, name: "Olivia Harris", email: "olivia@example.com", role: "User", status: "Inactive" },
-    { id: 11, name: "Ethan Moore", email: "ethan@example.com", role: "Admin", status: "Active" },
-    { id: 12, name: "Isabella Lewis", email: "isabella@example.com", role: "User", status: "Active" },
-    { id: 13, name: "Alexander Walker", email: "alex@example.com", role: "Moderator", status: "Active" },
-    { id: 14, name: "Mia Hall", email: "mia@example.com", role: "User", status: "Inactive" },
-    { id: 15, name: "James Allen", email: "james@example.com", role: "User", status: "Active" },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 7;
+  const usersPerPage = 5;
 
-  // Calculate the displayed users
+  // Pagination
   const startIndex = (currentPage - 1) * usersPerPage;
-  const endIndex = startIndex + usersPerPage;
-  const displayedUsers = usersData.slice(startIndex, endIndex);
-
-  // Pagination logic
+  const displayedUsers = usersData.slice(startIndex, startIndex + usersPerPage);
   const totalPages = Math.ceil(usersData.length / usersPerPage);
 
   return (
-    <div className="p-6">
+    <div className="p-4">
       {/* Header with Add User Button */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-[#004D40]">Manage Users</h2>
@@ -41,8 +29,8 @@ const UsersPage = () => {
         </button>
       </div>
 
-      {/* Table Container */}
-      <div className="overflow-x-auto bg-white shadow-md rounded-lg p-4">
+      {/* Desktop Table View */}
+      <div className="overflow-x-auto bg-white shadow-md rounded-lg p-4 hidden md:block">
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-[#004D40] text-white">
@@ -74,6 +62,28 @@ const UsersPage = () => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-4">
+        {displayedUsers.map((user) => (
+          <div key={user.id} className="bg-white shadow-md p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-[#004D40]">{user.name}</h3>
+            <p className="text-gray-600"><strong>Email:</strong> {user.email}</p>
+            <p className="text-gray-600"><strong>Role:</strong> {user.role}</p>
+            <p className={`font-semibold ${user.status === "Active" ? "text-green-600" : "text-red-600"}`}>
+              <strong>Status:</strong> {user.status}
+            </p>
+            <div className="flex gap-4 mt-3">
+              <button className="text-blue-500 hover:text-blue-700">
+                <FaEdit />
+              </button>
+              <button className="text-red-500 hover:text-red-700">
+                <FaTrash />
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Pagination Controls */}
