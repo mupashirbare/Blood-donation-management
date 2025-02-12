@@ -69,7 +69,7 @@ const UsersPage = () => {
       {/* Header with Add User Button and Search Input */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
         <h2 className="text-2xl font-bold text-[#004D40]">Manage Users</h2>
-        <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-white">
+        <div className="flex items-center border border-gray-300 rounded-lg px-3 py-2 bg-white ">
           <FaSearch className="text-gray-500 mr-2" />
           <input
             type="text"
@@ -79,9 +79,7 @@ const UsersPage = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
-        <button className="bg-[#00796B] text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-[#004D40]">
-          <FaPlus /> Add User
-        </button>
+       
       </div>
 
       {loading && <p className="text-center text-gray-500">Loading users...</p>}
