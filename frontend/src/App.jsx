@@ -13,6 +13,7 @@ import DashboardStats from "./components/DashboardStats";
 import UsersPage from "./pages/UsersPage";
 import Login from "./pages/login";
 import DonorsPage from "./pages/DonorsPage";
+import BloodRequests from "./pages/BloodRequests";
 
 const App = () => {
   return (
@@ -34,7 +35,7 @@ const App = () => {
           <Route path="dashboard-stats" element={<DashboardStats />} />
           <Route path="users" element={<UsersPage/>} />
           <Route path="donors" element={<DonorsPage/>} />
-          <Route path="blood-requests" element={<h2>Blood Requests</h2>} />
+          <Route path="blood-requests" element={<BloodRequests/>} />
           <Route path="reports" element={<h2>Reports</h2>} />
           <Route path="profile" element={<h2>Profile</h2>} />
         </Route>
