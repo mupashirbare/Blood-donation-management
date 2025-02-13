@@ -12,6 +12,7 @@ import AdminDashboard from "./layout/AdminDashboard";
 import DashboardStats from "./components/DashboardStats";
 import UsersPage from "./pages/UsersPage";
 import Login from "./pages/login";
+import DonorsPage from "./pages/DonorsPage";
 
 const App = () => {
   return (
@@ -32,7 +33,7 @@ const App = () => {
           <Route index element={<DashboardStats />} /> {/* Default Admin Page */}
           <Route path="dashboard-stats" element={<DashboardStats />} />
           <Route path="users" element={<UsersPage/>} />
-          <Route path="donors" element={<h2>Donors Work</h2>} />
+          <Route path="donors" element={<DonorsPage/>} />
           <Route path="blood-requests" element={<h2>Blood Requests</h2>} />
           <Route path="reports" element={<h2>Reports</h2>} />
           <Route path="profile" element={<h2>Profile</h2>} />
