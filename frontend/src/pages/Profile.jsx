@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -23,9 +22,7 @@ const Profile = () => {
 
   return (
     <div className="flex">
-      {/* Sidebar */}
-      <Sidebar />
-
+     
       {/* Main Content */}
       <div className="flex-1 p-6 bg-gray-100 min-h-screen">
         <h1 className="text-3xl font-semibold text-[#004D40] mb-6">Profile</h1>

@@ -14,6 +14,7 @@ import UsersPage from "./pages/UsersPage";
 import Login from "./pages/login";
 import DonorsPage from "./pages/DonorsPage";
 import BloodRequests from "./pages/BloodRequests";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -37,7 +38,7 @@ const App = () => {
           <Route path="donors" element={<DonorsPage/>} />
           <Route path="blood-requests" element={<BloodRequests/>} />
           <Route path="reports" element={<h2>Reports</h2>} />
-          <Route path="profile" element={<h2>Profile</h2>} />
+          <Route path="profile" element={<Profile/>} />
         </Route>
       </Routes>
     </Router>
