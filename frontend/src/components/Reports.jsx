@@ -1,11 +1,9 @@
-import Sidebar from "../components/Sidebar";
+import React from "react";
 
 const Reports = () => {
   return (
     <div className="flex">
-      {/* Sidebar */}
-      <Sidebar />
-
+    
       {/* Main Content */}
       <div className="flex-1 p-6 bg-gray-100 min-h-screen">
         <h1 className="text-3xl font-semibold text-[#004D40] mb-6">Reports</h1>
