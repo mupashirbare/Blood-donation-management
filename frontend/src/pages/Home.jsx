@@ -1,9 +1,12 @@
 import React from "react";
 import Footer from "../components/Footer";
 import ServicesPage from "./ServicesPage";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
+    <Navbar/>,
+
     <div className="min-h-screen bg-[#F8F9FA] flex flex-col items-center">
       {/* Hero Section */}
       <div className="w-full max-w-screen-xl px-6 py-12 md:py-20 text-center">

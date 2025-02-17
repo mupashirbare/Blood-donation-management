@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
-import Navbar from "./components/Navbar";
 import ContactPage from "./pages/ContactPage";
 import AboutUs from "./pages/AboutUs";
 import ServicesPage from "./pages/ServicesPage";
@@ -20,7 +19,7 @@ import Reports from "./components/Reports";
 const App = () => {
   return (
     <Router>
-      <Navbar />
+      
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
